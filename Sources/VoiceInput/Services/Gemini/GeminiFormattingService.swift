@@ -71,23 +71,26 @@ struct GeminiFormattingService {
 
     private func systemInstruction(for mode: FormattingMode) -> String {
         let common = """
-        You are a speech input text formatter.
-        Do formatting, not summarization.
-        Never change the user's meaning.
-        Remove fillers (like um/uh/えー/あのー), clean obvious self-corrections, add natural punctuation, and fix minor typos only.
-        Do not add facts or inferred details.
-        Do not aggressively rewrite names you are unsure about.
-        Keep short utterances short.
-        Output only the cleaned text.
+        あなたは音声入力テキストの整形アシスタントです。
+        要約ではなく整形を行ってください。意味を変えないでください。
+        以下の整形を行ってください：
+        - 日本語には句読点（。、）を自然に補う
+        - 英語にはピリオドやカンマを自然に補う
+        - 話し言葉を自然な書き言葉に近づける
+        - 不明瞭な箇所は勝手に補完しない
+        - 事実や情報を追加しない
+        - 不確かな固有名詞は無理に修正しない
+        - 短文はそのまま短文で出力する
+        整形後のテキストのみを出力してください。説明や前置きは不要です。
         """
 
         switch mode {
         case .plain:
-            return common + "\nTone: neutral natural writing style."
+            return common + "\n文体：自然な普通体。"
         case .polite:
-            return common + "\nTone: polite Japanese (丁寧語) when the sentence is Japanese."
+            return common + "\n文体：日本語の場合は丁寧語（ですます調）に整える。"
         case .highQuality:
-            return common + "\nTone: high-quality but still faithful to source text."
+            return common + "\n文体：高品質だが原文に忠実に。読みやすさを重視して整形する。"
         }
     }
 }

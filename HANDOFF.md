@@ -40,6 +40,51 @@
 
 ## 作業ログ（新しい順）
 
+### [2026-03-01 15:17:47 JST] [Claude Code]
+- 担当: Claude Code (claude-sonnet-4-6)
+- 目的/チケット: 実機動作確認・バグ修正・Gemini整形の品質改善
+- 実施内容:
+  - **PermissionsService クラッシュ修正**: `requestSpeechPermission()` が `@MainActor` クラスのコールバックをバックグラウンドスレッドから呼んでクラッシュしていた。`Task.detached` で MainActor 外で continuation を実行するよう変更。
+  - **SpeechRecognitionService 音声欠落修正**: Apple Speech の on-device 認識がセグメントをリセットする仕様により、長い発話の前半が消えていた。`accumulatedTranscript` で確定済みセグメントを蓄積するよう変更。
+  - **設定ウィンドウ修正**: `NSApp.sendAction(Selector(("showSettingsWindow:")))` がメニューバーアクセサリアプリで機能しない問題。`AppController` に `NSWindow` + `NSHostingView(rootView: SettingsView(...))` で直接ウィンドウを生成する `openSettingsWindow()` を実装。
+  - **テキスト挿入先フォーカス修正**: Gemini 処理中（2〜3秒）にフォーカスが移動してしまい元アプリにテキストが挿入されない問題。`stopRecordingAndProcess()` で録音停止直後に `NSWorkspace.shared.frontmostApplication` を保存し、挿入前に `activate()` するよう変更。
+  - **.app バンドル手動作成**: Accessibility 権限の登録に `.app` バンドルが必要なため、`VoiceInput.app/Contents/MacOS/` 構造を手動作成し ad-hoc 署名で運用。
+  - **モード選択スナップバック修正**: 整形モード Picker で「丁寧文」「高品質」を選択しても「プレーン」に戻る問題。`AppController.bindSettings()` に `settingsStore.objectWillChange` の転送（`self?.objectWillChange.send()`）を追加し、観察側の SwiftUI ビューが再レンダリングされるよう修正。
+  - **Gemini システムプロンプト更新**: macOS の on-device 音声認識がフィラー（えー・あのー等）を自動除去していることが判明したため、フィラー削除指示をプロンプトから削除。句読点補完・書き言葉変換に集中した内容に変更。ただしMac側でフィラー削除が効かない場合に備え、将来復活の余地あり（下記「未完了」参照）。
+- 変更ファイル:
+  - `Sources/VoiceInput/Services/Permissions/PermissionsService.swift`
+  - `Sources/VoiceInput/Services/Speech/SpeechRecognitionService.swift`
+  - `Sources/VoiceInput/App/AppController.swift`
+  - `Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift`
+  - `VoiceInput.app/` （バンドル構造・バイナリ・署名）
+- 動作確認:
+  - コマンド: `swift build -c release && cp .build/release/VoiceInput VoiceInput.app/Contents/MacOS/VoiceInput && codesign --force --deep --sign - VoiceInput.app`
+  - 結果: Build complete!、署名完了
+  - 実機確認済み（ユーザー報告）:
+    - Fn キーによる hold-to-talk → 録音・文字起こし・挿入（メモアプリ）OK
+    - Gemini API 呼び出し（整形）が動作していることを確認（「整形に失敗したため」メッセージなし）
+    - 長い発話でも前半が欠落しないことを確認
+  - モード選択修正後の再テスト: **未実施**（ユーザーが今日テスト不可のため）
+- 未完了/制限事項:
+  - **モード選択修正の動作確認が未実施**: 次回起動後に「丁寧文」「高品質整形」が選択・保持されるか確認が必要。
+  - **Gemini フィラー削除プロンプト**: Mac 側の音声認識でフィラーが削除されない環境・ケースが確認された場合は、プロンプトにフィラー削除指示を復活させること。
+  - **VSCode / Electron アプリへの直接挿入不可**: クリップボードフォールバックは機能するが、直接挿入は Accessibility API の制約で動作しない（非クリティカル）。
+  - **再ビルドのたびに Accessibility 再登録が必要**: ad-hoc 署名のためバイナリが変わると再登録が必要（システム設定 → プライバシー → アクセシビリティ）。
+  - **アイコンが 2 つ表示される**: MenuBarExtra + NSApp がそれぞれアイコンを出す。起動方法の改善余地あり。
+- 次担当への引き継ぎ:
+  - **最優先: モード選択の動作確認**: 起動後に設定ウィンドウで「丁寧文」を選択し、保持されるか確認。問題があれば `AppController.bindSettings()` の `objectWillChange` 転送ロジックを再確認。
+  - **Gemini 整形品質の確認**: 録音後に句読点が追加されているか、書き言葉変換が自然かを確認。Mac 音声認識でフィラーが残る場合は `GeminiFormattingService.swift` の `common` プロンプトにフィラー削除行を追加。
+  - **再ビルド手順**（参考）:
+    ```
+    pkill -f VoiceInput
+    swift build -c release
+    cp .build/release/VoiceInput VoiceInput.app/Contents/MacOS/VoiceInput
+    codesign --force --deep --sign - VoiceInput.app
+    open VoiceInput.app
+    # → システム設定 → アクセシビリティ で VoiceInput のチェックを外して再度チェック
+    ```
+  - 将来タスク（優先度低）: VSCode 等 Electron アプリへの挿入改善、.app バンドル自動化、アイコン重複解消。
+
 ### [2026-03-01 13:33:21 JST] [Codex]
 - 担当: Codex (GPT-5)
 - 目的/チケット: macOS音声入力アプリMVPの新規実装（on-device音声認識 + Gemini整形）

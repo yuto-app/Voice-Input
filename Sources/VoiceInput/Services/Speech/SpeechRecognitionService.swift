@@ -8,6 +8,7 @@ final class SpeechRecognitionService {
     private var recognitionTask: SFSpeechRecognitionTask?
     private var partialHandler: ((String) -> Void)?
     private(set) var latestTranscript: String = ""
+    private var accumulatedTranscript: String = ""
 
     func startRecognition(onPartialResult: @escaping (String) -> Void) throws {
         stopImmediately()
@@ -25,14 +26,19 @@ final class SpeechRecognitionService {
         request.requiresOnDeviceRecognition = true
         self.request = request
         self.latestTranscript = ""
+        self.accumulatedTranscript = ""
 
         self.recognitionTask = recognizer.recognitionTask(with: request) { [weak self] result, error in
             guard let self else { return }
 
             if let result {
-                let transcript = result.bestTranscription.formattedString
-                self.latestTranscript = transcript
-                self.partialHandler?(transcript)
+                let segment = result.bestTranscription.formattedString
+                let full = self.accumulatedTranscript.isEmpty ? segment : self.accumulatedTranscript + " " + segment
+                self.latestTranscript = full
+                self.partialHandler?(full)
+                if result.isFinal {
+                    self.accumulatedTranscript = full
+                }
             }
 
             if let error {
@@ -60,6 +66,7 @@ final class SpeechRecognitionService {
         request = nil
         recognizer = nil
         partialHandler = nil
+        accumulatedTranscript = ""
     }
 
     enum SpeechError: LocalizedError {

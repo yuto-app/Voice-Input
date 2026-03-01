@@ -1,0 +1,17 @@
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/AppController.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/VoiceInputApp.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/MenuBar/MenuBarView.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecorderStatusView.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Audio/AudioCaptureService.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Hotkey/HotkeyService.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Insertion/TextInsertionService.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Permissions/PermissionsService.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Speech/SpeechRecognitionService.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Models/AppState.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Models/FormattingMode.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Models/ShortcutOption.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Stores/HistoryStore.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Stores/SettingsStore.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Utilities/AppLogger.swift

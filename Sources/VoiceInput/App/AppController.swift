@@ -1,6 +1,7 @@
 import AppKit
 import Combine
 import Foundation
+import SwiftUI
 
 @MainActor
 final class AppController: ObservableObject {
@@ -22,6 +23,7 @@ final class AppController: ObservableObject {
 
     private var cancellables = Set<AnyCancellable>()
     private var isRecording = false
+    private var settingsWindow: NSWindow?
 
     init(
         settingsStore: SettingsStore = SettingsStore(),
@@ -82,7 +84,20 @@ final class AppController: ObservableObject {
     }
 
     func openSettingsWindow() {
-        NSApp.sendAction(Selector(("showSettingsWindow:")), to: nil, from: nil)
+        if settingsWindow == nil {
+            let window = NSWindow(
+                contentRect: NSRect(x: 0, y: 0, width: 480, height: 520),
+                styleMask: [.titled, .closable, .resizable],
+                backing: .buffered,
+                defer: false
+            )
+            window.title = "VoiceInput 設定"
+            window.contentView = NSHostingView(rootView: SettingsView(appController: self))
+            window.center()
+            window.isReleasedWhenClosed = false
+            settingsWindow = window
+        }
+        settingsWindow?.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
     }
 
@@ -108,6 +123,12 @@ final class AppController: ObservableObject {
     }
 
     private func bindSettings() {
+        settingsStore.objectWillChange
+            .sink { [weak self] in
+                self?.objectWillChange.send()
+            }
+            .store(in: &cancellables)
+
         settingsStore.$shortcut
             .removeDuplicates()
             .sink { [weak self] shortcut in
@@ -196,6 +217,9 @@ final class AppController: ObservableObject {
     private func stopRecordingAndProcess() async {
         guard isRecording else { return }
 
+        // Gemini処理前にフォーカスアプリを記憶する
+        let targetApp = NSWorkspace.shared.frontmostApplication
+
         isRecording = false
         audioCaptureService.stopCapture()
         try? await Task.sleep(nanoseconds: 350_000_000)
@@ -222,7 +246,10 @@ final class AppController: ObservableObject {
             }
         }
 
+        // 挿入前に元のアプリへフォーカスを戻す
         state = .inserting
+        targetApp?.activate()
+        try? await Task.sleep(nanoseconds: 100_000_000)
         let insertionResult = textInsertionService.insert(text: cleanedText, settings: settings)
         lastFormattedText = cleanedText
         historyStore.append(raw: rawTranscript, cleaned: cleanedText, mode: settings.mode)

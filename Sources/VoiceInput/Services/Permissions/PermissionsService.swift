@@ -68,11 +68,13 @@ final class PermissionsService {
             return true
         }
 
-        return await withCheckedContinuation { continuation in
-            SFSpeechRecognizer.requestAuthorization { status in
-                continuation.resume(returning: status == .authorized)
+        return await Task.detached {
+            await withCheckedContinuation { continuation in
+                SFSpeechRecognizer.requestAuthorization { status in
+                    continuation.resume(returning: status == .authorized)
+                }
             }
-        }
+        }.value
     }
 
     func openSystemSettingsForAccessibility() {
