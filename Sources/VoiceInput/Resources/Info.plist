@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>CFBundleName</key>
+    <string>VoiceInput</string>
+    <key>CFBundleIdentifier</key>
+    <string>com.example.voiceinput</string>
+    <key>CFBundleVersion</key>
+    <string>1</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.1.0</string>
+    <key>NSMicrophoneUsageDescription</key>
+    <string>VoiceInput uses the microphone for on-device speech recognition.</string>
+    <key>NSSpeechRecognitionUsageDescription</key>
+    <string>VoiceInput transcribes speech on your Mac and sends only text for formatting.</string>
+</dict>
+</plist>

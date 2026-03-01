@@ -1,0 +1,124 @@
+{
+  "": {
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/master.swiftdeps"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/AppController.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppController.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppController.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppController~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppController.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppController.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/VoiceInputApp.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/VoiceInputApp.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/VoiceInputApp.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/VoiceInputApp~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/VoiceInputApp.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/VoiceInputApp.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/MenuBar/MenuBarView.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/MenuBarView.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/MenuBarView.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/MenuBarView~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/MenuBarView.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/MenuBarView.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecorderStatusView.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/RecorderStatusView.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/RecorderStatusView.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/RecorderStatusView~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/RecorderStatusView.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/RecorderStatusView.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsView.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsView.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsView~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsView.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsView.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Audio/AudioCaptureService.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AudioCaptureService.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AudioCaptureService.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AudioCaptureService~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AudioCaptureService.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AudioCaptureService.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/GeminiFormattingService.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/GeminiFormattingService.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/GeminiFormattingService~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/GeminiFormattingService.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/GeminiFormattingService.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Hotkey/HotkeyService.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HotkeyService.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HotkeyService.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HotkeyService~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HotkeyService.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HotkeyService.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Insertion/TextInsertionService.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/TextInsertionService.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/TextInsertionService.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/TextInsertionService~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/TextInsertionService.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/TextInsertionService.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Permissions/PermissionsService.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/PermissionsService.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/PermissionsService.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/PermissionsService~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/PermissionsService.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/PermissionsService.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Speech/SpeechRecognitionService.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SpeechRecognitionService.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SpeechRecognitionService.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SpeechRecognitionService~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SpeechRecognitionService.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SpeechRecognitionService.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Models/AppState.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppState.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppState.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppState~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppState.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppState.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Models/FormattingMode.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/FormattingMode.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/FormattingMode.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/FormattingMode~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/FormattingMode.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/FormattingMode.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Models/ShortcutOption.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/ShortcutOption.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/ShortcutOption.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/ShortcutOption~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/ShortcutOption.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/ShortcutOption.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Stores/HistoryStore.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HistoryStore.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HistoryStore.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HistoryStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HistoryStore.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/HistoryStore.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Stores/SettingsStore.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsStore.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsStore.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsStore~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsStore.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/SettingsStore.dia"
+  },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Shared/Utilities/AppLogger.swift": {
+    "dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppLogger.d",
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppLogger.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppLogger~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppLogger.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/debug/VoiceInput.build/AppLogger.dia"
+  }
+}
