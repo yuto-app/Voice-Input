@@ -40,6 +40,47 @@
 
 ## 作業ログ（新しい順）
 
+### [2026-03-03 Claude Code]
+- 担当: Claude Code (claude-sonnet-4-6)
+- 目的/チケット: MEMO.md のフィードバック対応（整形品質・視覚的フィードバック・挿入改善）
+- 実施内容:
+  - **Gemini整形プロンプトの全面改訂**: 従来のプロンプトが過度に保守的で整形効果がほぼゼロだった問題を修正。フィラー削除（えー・えっと・あのー等）の明示、言い直し整理、話し言葉→書き言葉変換の具体例追加（「〜っていう」→「〜という」等）。
+  - **Geminiデバッグログ追加**: `AppLogger.gemini.debug` で入力テキスト・出力テキスト・モデル名をログに記録するよう追加。整形前後の差分がConsole.appで確認可能に。
+  - **録音中フローティングHUD追加**: Fn押下中に画面に何も表示されない問題を解決。`RecordingHUDView.swift` を新規作成し、`AppController` に `NSPanel` ベースの HUD 管理を追加。録音開始時に画面上部中央に「● 録音中」「● 文字起こし中」のオーバーレイが表示され、ライブ文字起こしも60文字まで表示される。
+  - **挿入待機時間を延長**: Gemini処理後の `targetApp.activate()` からペーストまでの待機を100ms→400msに延長。Electron製アプリ（Antigravity等）やブラウザへの挿入成功率が向上する見込み。
+  - **挿入デバッグログ追加**: 対象アプリのBundle ID・挿入結果をログに記録。
+- 変更ファイル:
+  - `Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift`（プロンプト改訂・ログ追加）
+  - `Sources/VoiceInput/App/AppController.swift`（HUD管理・待機延長・ログ追加）
+  - `Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift`（新規作成）
+- 動作確認:
+  - コマンド: `swift build -c release && cp .build/release/VoiceInput VoiceInput.app/Contents/MacOS/VoiceInput && codesign --force --deep --sign - VoiceInput.app`
+  - 結果: Build complete!、署名完了
+  - 実機確認: **未実施**（ユーザーによるテストを待機）
+- 未完了/制限事項:
+  - **HUD高さ固定（60px）**: 文字起こしが長くなっても高さは変わらない。必要なら NSPanel + NSHostingView の autosizing を改善。
+  - **HUDがメニューバークリック時も表示される**: メニュー経由で録音開始した場合も HUD が出る（想定動作）。
+  - **Antigravity への直接挿入**: Electron アプリへの Accessibility API 挿入は引き続き不可。ペーストフォールバック（400ms delay）で対応。
+  - **モード選択**: コードレビューで問題なしと判断したが、実機テストは未実施。
+- 次担当への引き継ぎ:
+  - **最優先: 実機テスト**
+    1. 録音中にHUDが画面上部に表示されるか
+    2. Gemini整形後に文章が変わっているか（フィラーが消えているか）
+    3. Antigravity チャットに貼り付けが成功するか
+    4. モード「丁寧文」選択後に保持されるか
+  - **再ビルド手順**:
+    ```
+    pkill -f VoiceInput
+    swift build -c release
+    cp .build/release/VoiceInput VoiceInput.app/Contents/MacOS/VoiceInput
+    codesign --force --deep --sign - VoiceInput.app
+    open VoiceInput.app
+    # システム設定 → アクセシビリティ で VoiceInput のチェックを外して再チェック
+    ```
+  - **ログ確認**: Console.app で "VoiceInput" を検索 → Gemini カテゴリで input/output を確認可能。
+
+
+
 ### [2026-03-01 15:17:47 JST] [Claude Code]
 - 担当: Claude Code (claude-sonnet-4-6)
 - 目的/チケット: 実機動作確認・バグ修正・Gemini整形の品質改善

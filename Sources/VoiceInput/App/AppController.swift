@@ -24,6 +24,7 @@ final class AppController: ObservableObject {
     private var cancellables = Set<AnyCancellable>()
     private var isRecording = false
     private var settingsWindow: NSWindow?
+    private var hudPanel: NSPanel?
 
     init(
         settingsStore: SettingsStore = SettingsStore(),
@@ -122,6 +123,41 @@ final class AppController: ObservableObject {
         permissionsService.isAccessibilityTrusted() ? "許可済み" : "未許可"
     }
 
+    // MARK: - Recording HUD
+
+    private func showRecordingHUD() {
+        if hudPanel == nil {
+            let panel = NSPanel(
+                contentRect: NSRect(x: 0, y: 0, width: 320, height: 60),
+                styleMask: [.nonactivatingPanel, .fullSizeContentView],
+                backing: .buffered,
+                defer: false
+            )
+            panel.level = .floating
+            panel.collectionBehavior = [.canJoinAllSpaces, .stationary, .ignoresCycle]
+            panel.backgroundColor = .clear
+            panel.isOpaque = false
+            panel.hasShadow = true
+
+            let hudView = NSHostingView(rootView: RecordingHUDView(appController: self))
+            hudView.frame = NSRect(x: 0, y: 0, width: 320, height: 60)
+            panel.contentView = hudView
+
+            if let screen = NSScreen.main {
+                let x = screen.frame.origin.x + (screen.frame.width - 320) / 2
+                let y = screen.frame.origin.y + screen.frame.height - 120
+                panel.setFrameOrigin(NSPoint(x: x, y: y))
+            }
+
+            hudPanel = panel
+        }
+        hudPanel?.orderFrontRegardless()
+    }
+
+    private func hideRecordingHUD() {
+        hudPanel?.orderOut(nil)
+    }
+
     private func bindSettings() {
         settingsStore.objectWillChange
             .sink { [weak self] in
@@ -205,6 +241,7 @@ final class AppController: ObservableObject {
             }
 
             isRecording = true
+            showRecordingHUD()
             AppLogger.app.debug("Recording started via \(triggeredByHotkey ? "hotkey" : "menu", privacy: .public)")
         } catch {
             isRecording = false
@@ -221,6 +258,7 @@ final class AppController: ObservableObject {
         let targetApp = NSWorkspace.shared.frontmostApplication
 
         isRecording = false
+        hideRecordingHUD()
         audioCaptureService.stopCapture()
         try? await Task.sleep(nanoseconds: 350_000_000)
 
@@ -246,11 +284,14 @@ final class AppController: ObservableObject {
             }
         }
 
-        // 挿入前に元のアプリへフォーカスを戻す
+        // 挿入前に元のアプリへフォーカスを戻す（Electronアプリ対応で400msに延長）
         state = .inserting
+        let bundleID = targetApp?.bundleIdentifier ?? "unknown"
+        AppLogger.insertion.debug("Activating target app: \(bundleID, privacy: .public)")
         targetApp?.activate()
-        try? await Task.sleep(nanoseconds: 100_000_000)
+        try? await Task.sleep(nanoseconds: 400_000_000)
         let insertionResult = textInsertionService.insert(text: cleanedText, settings: settings)
+        AppLogger.insertion.debug("Insertion result: \(String(describing: insertionResult), privacy: .public) for \(bundleID, privacy: .public)")
         lastFormattedText = cleanedText
         historyStore.append(raw: rawTranscript, cleaned: cleanedText, mode: settings.mode)
 

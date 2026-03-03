@@ -2,6 +2,7 @@
 /Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/VoiceInputApp.swift
 /Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/MenuBar/MenuBarView.swift
 /Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecorderStatusView.swift
+/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift
 /Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift
 /Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Audio/AudioCaptureService.swift
 /Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift

@@ -40,6 +40,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift"
         },
         {
@@ -107,6 +111,7 @@
         "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/VoiceInputApp.swift.o",
         "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/MenuBarView.swift.o",
         "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecorderStatusView.swift.o",
+        "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView.swift.o",
         "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/SettingsView.swift.o",
         "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/AudioCaptureService.swift.o",
         "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/GeminiFormattingService.swift.o",
@@ -181,6 +186,10 @@
         },
         {
           "kind" : "file",
+          "name" : "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView.swift.o"
+        },
+        {
+          "kind" : "file",
           "name" : "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/SettingsView.swift.o"
         },
         {
@@ -242,6 +251,7 @@
         "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/VoiceInputApp.swift",
         "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/MenuBar/MenuBarView.swift",
         "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecorderStatusView.swift",
+        "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift",
         "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift",
         "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Audio/AudioCaptureService.swift",
         "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift",
@@ -275,6 +285,7 @@
       "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/App/VoiceInputApp.swift",
       "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/MenuBar/MenuBarView.swift",
       "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecorderStatusView.swift",
+      "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift",
       "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift",
       "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Audio/AudioCaptureService.swift",
       "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Services/Gemini/GeminiFormattingService.swift",
@@ -371,6 +382,10 @@
         {
           "kind" : "file",
           "name" : "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecorderStatusView.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift"
         },
         {
           "kind" : "file",
@@ -477,6 +492,10 @@
         {
           "kind" : "file",
           "name" : "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecorderStatusView.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView.swift.o"
         },
         {
           "kind" : "file",

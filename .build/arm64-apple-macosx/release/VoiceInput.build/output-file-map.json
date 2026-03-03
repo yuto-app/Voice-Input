@@ -28,6 +28,12 @@
     "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecorderStatusView.swiftdeps",
     "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecorderStatusView.dia"
   },
+  "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Recorder/RecordingHUDView.swift": {
+    "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView.swift.o",
+    "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView~partial.swiftmodule",
+    "swift-dependencies": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView.swiftdeps",
+    "diagnostics": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/RecordingHUDView.dia"
+  },
   "/Users/shin/Projects/Voice-Input/Sources/VoiceInput/Features/Settings/SettingsView.swift": {
     "object": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/SettingsView.swift.o",
     "swiftmodule": "/Users/shin/Projects/Voice-Input/.build/arm64-apple-macosx/release/VoiceInput.build/SettingsView~partial.swiftmodule",
